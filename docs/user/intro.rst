@@ -12,6 +12,13 @@ operating system.
 Hopefully this guide will complement the NuttX documentation, filling in gaps when needed, and 
 providing a way for people to get started with NuttX easily.
 
+If you have improvements, corrections, additions, or things you'd like to see covered here,
+let me know!
+
+| Adam Feuer
+| adam@adamfeuer.com
+
+
 
 License
 -------
