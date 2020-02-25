@@ -12,7 +12,7 @@ Debug Logging
 -------------
 
 NuttX has a powerful logging facility with ``info``, ``warn``, and ``error`` levels. You can enable debugging for your
-build by puttting the follwing lines in your ``.config`` file:
+build by putting the following lines in your ``.config`` file:
 
     .. code-block::
 
@@ -48,7 +48,6 @@ Custom Debug Logging
 Sometimes you need to see debug logs specific to your feature, and you don't want the rest of the built-in logs
 because they're either not relevant or have too much information. You can add your own custom debug logging by
 adding the following lines to `debug.h <https://github.com/apache/incubator-nuttx/blob/master/include/debug.h>`_:
-
 
     .. code-block:: c
 
