@@ -44,8 +44,8 @@ You can either clone the public repositories:
 
        $ mkdir nuttx
        $ cd nuttx
-       $ git clone https://github.com/apache/incubator-nuttx.git
-       $ git clone https://github.com/apache/incubator-nuttx-apps
+       $ git clone https://github.com/apache/incubator-nuttx.git nuttx
+       $ git clone https://github.com/apache/incubator-nuttx-apps apps
 
 Or, download the `tarball <https://github.com/apache/incubator-nuttx/tarball/master>`_:
 

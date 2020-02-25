@@ -28,6 +28,7 @@ How to get NuttX, configure it, compile it, and install it on your embedded hard
    user/quickstart
    user/install
    user/uploading
+   user/debugging
    user/making-changes
    user/resources
 
