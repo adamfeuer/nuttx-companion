@@ -1,8 +1,8 @@
 .. include:: /substitutions.rst
 .. _making-changes:
 
-Making Changes To NuttX
-=======================
+Making Changes
+==============
 
 If you want to make changes to NuttX, for your own personal use, or to submit them back to project to improve NuttX,
 that's easy. For the purposes of this guide, you'll need a `GitHub <https://www.github.com>`_ account, since
@@ -12,6 +12,13 @@ guide).
 
 Here's how to do it:
 
+#. Set your git user name and email
+
+    .. code-block:: bash
+
+       $ cd nuttx/
+       $ git config --global user.name "Your Name"
+       $ git config --global user.email "yourname@somedomaincom"
 
 #. Sign in to GitHub
 
@@ -78,8 +85,11 @@ Here's how to do it:
        $ git push
 
 
-Git Workflow With an Upstream
------------------------------
+Git Workflow With an Upstream Repository
+----------------------------------------
+
+The main NuttX git repository is called an "upstream" repository - this is because it's the main source of truth, and
+its changes flow downstream to people who've forked that repository, like us.
 
 Working with an upstream repo is a bit more complex, but it's worth it since you can submit fixes and features
 to the main NuttX repos. One of the things you need to do regularly is keep your local repo in sync
@@ -93,6 +103,7 @@ maybe doing that several times. Then when everything works, I get my branch read
        $ git checkout master
        $ git fetch upstream
        $ git merge upstream/master
+       $ git push
 
 #. Merge my local master with my local branch:
 
@@ -100,6 +111,7 @@ maybe doing that several times. Then when everything works, I get my branch read
 
        $ git checkout my-local-branch
        $ git merge master
+       $ git push
 
 #. Make changes and push them to my fork
 
@@ -133,7 +145,8 @@ maybe doing that several times. Then when everything works, I get my branch read
        -  read standard input mainly used by git pre-commit hook as below:
           git diff --cached | ./tools/checkpatch.sh -
 
-   Run it against your files and correct all the errors, so that ``tools/checkpatch.sh`` reports no errors. Then commit the result.
+   Run it against your files and correct all the errors in the code you added, so that
+   ``tools/checkpatch.sh`` reports no errors. Then commit the result.
    For example:
 
     .. code-block:: bash
@@ -144,6 +157,19 @@ maybe doing that several times. Then when everything works, I get my branch read
        $ vim my-file.c
        $ # run again
        $ ./tools/checkpatch.sh -f my-file.c
+
+   If you have made a lot of changes, you can also use this bash commandline to see the errors for all the changed C files in your branch:
+
+    .. code-block:: bash
+
+       $ git diff --name-only master...YOUR-BRANCH-NAME | egrep "\.c|\.h" | xargs echo | xargs ./tools/checkpatch.sh -f | less
+
+   Note that there are some bugs in the ``nxstyle`` program that ``checkpatch.sh`` uses, so
+   it may report a few errors that are not actually errors. The committers will help you
+   find these. (Or view the
+   `nxstyle Issues <https://github.com/apache/incubator-nuttx/issues?q=is%3Aissue+is%3Aopen+nxstyle>`_.)
+   |br|
+   |br|
 
 #. Commit the fixed files
 
@@ -157,9 +183,10 @@ maybe doing that several times. Then when everything works, I get my branch read
 Submitting Your Changes to NuttX
 --------------------------------
 
-The NuttX team wants all the changes you made in your branch "squashed" into a single commit, so that when they merge
-your changes to master, there's a clean view of the history– each Pull Request is in a single commit. Here's the
-easiest way I found to do that:
+Before you do a Pull Request, the NuttX team will usually want all the changes you made in your branch "squashed" into
+a single commit, so that when they review your changes, there's a clean view of the history. If there are changes
+after Pull Request review feedback, they can be separate commits. Here's the easiest way I found to do that initial
+squash before submitting the Pull Request:
 
 #. Check out my branch
 
@@ -192,11 +219,11 @@ easiest way I found to do that:
 
        $ git commit
 
-#. Force-push your new clean branch to the remote- this will overwrite all your previous changes in that branch:
+#. Force-push your new clean branch to the remote— this will overwrite all your previous changes in that branch:
 
     .. code-block:: bash
 
-       $ git push -f
+       $ git push -f --set-upstream origin my-branch
 
 #. Create a GitHub Pull Request
 

@@ -4,13 +4,15 @@
 The NuttX Companion
 ===================
 
-Release v\ |version|. (:ref:`Installation <install>`)
+Release v\ |version|. (:ref:`Quickstart <quickstart>`)
 
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
 
-`NuttX <https://nuttx.incubator.apache.org/>`_ is a very capable, small, fast, POSIX-compatible, internet-connected real-time operating system.
+`NuttX <https://nuttx.incubator.apache.org/>`_ is a very capable, configurable, fast,
+`POSIX <https://en.wikipedia.org/wiki/POSIX>`_-compatible, internet-connected
+`real-time operating system <https://en.wikipedia.org/wiki/Real-time_operating_system>`_.
 
 This book is meant to be a companion to the `NuttX Documentation <https://cwiki.apache.org/confluence/display/NUTTX/Nuttx>`_. Hopefully it will provide
 some more help for people interested in learning about NuttX, getting it running on their embedded hardware, and developing applications on it.
@@ -27,10 +29,15 @@ How to get NuttX, configure it, compile it, and install it on your embedded hard
    user/intro
    user/quickstart
    user/install
-   user/uploading
+   user/compiling
+   user/running
+   user/configuring
    user/debugging
+   user/simulator
    user/making-changes
    user/resources
+
+   user/contributing
 
 
 Indices and tables
