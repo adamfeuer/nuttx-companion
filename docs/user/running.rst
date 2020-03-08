@@ -33,7 +33,7 @@ You can load code, start, stop, step through the program, and examine variables 
 
 #. Set gdb to talk with the J-Link
 
-    .. code-block::
+    ::
 
        (gdb) target extended-remote :2331
 
@@ -43,7 +43,7 @@ You can load code, start, stop, step through the program, and examine variables 
    execute NuttX Shell (nsh) commands. You can access the serial console from Linux with the ``picocom`` terminal
    program:
 
-    .. code-block::
+    .. code-block:: bash
 
        $ picocom -b 115200 /dev/ttyUSB0
 

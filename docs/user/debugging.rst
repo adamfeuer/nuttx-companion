@@ -14,7 +14,7 @@ Debug Logging
 NuttX has a powerful logging facility with ``info``, ``warn``, and ``error`` levels. You can enable debugging for your
 build for the ``net`` feature (TCP/IP stack) by putting the following lines in your ``.config`` file:
 
-    .. code-block::
+    ::
 
        CONFIG_DEBUG_ALERT=y
        CONFIG_DEBUG_FEATURES=y

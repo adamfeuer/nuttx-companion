@@ -127,7 +127,7 @@ it.
 
    Use this template for the Pull Request description text:
 
-    .. code-block::
+    ::
 
        ### Summary
        ### Impact
