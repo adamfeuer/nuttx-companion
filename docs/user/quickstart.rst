@@ -51,11 +51,11 @@ computer, you're using an ARM processor on your embedded board, and you're famil
        $ cd nuttx
        $ ./tools/configure.sh list | less
 
-#. Configure NuttX Using a Base Configuration
+#. Initialize Configuration
 
-   Pick one of the board:application configuration pairs from the list, and feed it to the configuration script. 
-   The ``-l`` tells use that we're on Linux. macOS and Windows builds are possible, this Companion doesn't cover them
-   yet.
+   Pick one of the board:application base configuration pairs from the list, and feed it to
+   the configuration script. The ``-l`` tells us that we're on Linux. macOS and Windows builds
+   are possible, this Companion doesn't cover them yet.
 
     .. code-block:: bash
 
@@ -83,4 +83,4 @@ computer, you're using an ARM processor on your embedded board, and you're famil
 #. Install the Executable Program on Your Board
 
    This step is a bit more complicated, depending on your board. It's covered in the section
-   :ref:`Uploading NuttX to Your Board <uploading>`.
+   :ref:`Running NuttX <running>`.

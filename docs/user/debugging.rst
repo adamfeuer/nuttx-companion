@@ -12,7 +12,7 @@ Debug Logging
 -------------
 
 NuttX has a powerful logging facility with ``info``, ``warn``, and ``error`` levels. You can enable debugging for your
-build by putting the following lines in your ``.config`` file:
+build for the ``net`` feature (TCP/IP stack) by putting the following lines in your ``.config`` file:
 
     .. code-block::
 
@@ -32,12 +32,13 @@ build by putting the following lines in your ``.config`` file:
 
 Note that turning all these to ``y`` will produce an incredible amount of logging output. Set the level you want and
 the area you're interested in to ``y``, and the rest to ``n``, and then recompile. You can see the full list of
-areas in the file `debug.h <https://github.com/apache/incubator-nuttx/blob/master/include/debug.h>`_.
+debug feature areas in the file `debug.h <https://github.com/apache/incubator-nuttx/blob/master/include/debug.h>`__.
 
 Timestamps can be enabled by setting ``CONFIG_SYSLOG_TIMESTAMP=y``.
 
 You may need to do a little bit of experimenting to find the combination of logging settings that work for the problem
-you're trying to solve.
+you're trying to solve. See the file `debug.h <https://github.com/starcat-io/incubator-nuttx/blob/master/include/debug.h>`_
+for available debug settings that are available. This can also be configured via the ``menuconfig`` system.
 
 There are also subsystems that enable USB trace debugging, and you can log to memory too, if you need the logging to be
 faster than what the console can output
@@ -47,7 +48,7 @@ Custom Debug Logging
 
 Sometimes you need to see debug logs specific to your feature, and you don't want the rest of the built-in logs
 because they're either not relevant or have too much information. You can add your own custom debug logging by
-adding the following lines to `debug.h <https://github.com/apache/incubator-nuttx/blob/master/include/debug.h>`_:
+adding the following lines to `debug.h <https://github.com/apache/incubator-nuttx/blob/master/include/debug.h>`__:
 
     .. code-block:: c
 

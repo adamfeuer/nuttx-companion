@@ -1,8 +1,8 @@
 .. include:: /substitutions.rst
-.. _uploading:
+.. _running:
 
-Uploading NuttX to Your Embedded Board
-======================================
+Running
+=======
 
 Embedded boards have different ways to get your program onto them and get them running. This guide assumes your board
 has a JTAG connector, and you have a JTAG hardware debugger like a
