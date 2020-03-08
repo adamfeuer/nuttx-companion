@@ -49,7 +49,7 @@ You can load code, start, stop, step through the program, and examine variables 
 
 #. Load nuttx
 
-    .. code-block::
+    ::
 
        (gdb) load nuttx
        `/home/adamf/src/nuttx-sama5d36-xplained/nuttx/nuttx' has changed; re-reading symbols.
@@ -62,13 +62,13 @@ You can load code, start, stop, step through the program, and examine variables 
 
 #. Set a breakpoint
 
-    .. code-block::
+    ::
 
        (gdb) breakpoint nsh_main
 
 #. Start nuttx
 
-    .. code-block::
+    ::
 
        (gdb) continue
        Continuing.
@@ -78,4 +78,8 @@ You can load code, start, stop, step through the program, and examine variables 
        (gdb) continue
        Continuing.
 
+Debugging Shortcuts
+-------------------
 
+Note that you can abbreviate ``gdb`` commands, ``info b`` is a shortcut for
+``information breakpoints``; ``c`` works the same as ``continue``, etc.
