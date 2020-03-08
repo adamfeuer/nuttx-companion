@@ -16,9 +16,10 @@ This book is written in [ReStructured Text (RST)](https://docutils.sourceforge.i
 the excellent [Sphinx](https://www.sphinx-doc.org/) documentation system.
 
 To install it, first install Python 3.8 or later and [Pipenv](https://pipenv-fork.readthedocs.io/en/latest/). 
-Then from the `docs/` directory do:
+Then do:
 
 ```
+$ cd nuttx-companion
 $ pipenv install
 $ pipenv shell
 $ cd docs
