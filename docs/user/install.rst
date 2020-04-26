@@ -80,6 +80,7 @@ This is necessary to run the ``./nuttx/tools/configure.sh`` script as well as us
  .. code-block:: bash
 
     $ cd tools/
+    $ wget http://ftp.gnu.org/pub/gnu/gperf/gperf-3.1.tar.gz
     $ tar zxf gperf-3.1.tar.gz
     $ cd gperf-3.1
     $ ./configure --prefix=$NUTTXTOOLS
@@ -93,7 +94,7 @@ This is necessary to run the ``./nuttx/tools/configure.sh`` script as well as us
 
     $ cd tools/
     $ tar zxf genromfs-0.5.2.tar.gz
-    $ cd genromfs
+    $ cd genromfs-0.5.2
     $ make install PREFIX=$NUTTXTOOLS
 
 Get Source Code (Stable)
