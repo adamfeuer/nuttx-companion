@@ -4,14 +4,14 @@
 Introduction
 ============
 
-This is the NuttX Companion, a warm and friendly guide to all things NuttX– how to install it,
+This is the Apache NuttX Companion, a warm and friendly guide to all things Apache NuttX– how to install it,
 configure it, develop on it, debug it, improve it, get help from its community, and generally 
 be have fun with a very capable, configurable, fast,
 `POSIX <https://en.wikipedia.org/wiki/POSIX>`_-compatible, internet-connected
 `real-time operating system <https://en.wikipedia.org/wiki/Real-time_operating_system>`_.
 
-Hopefully this guide will complement the NuttX documentation, filling in gaps when needed, and 
-providing help for people wanting to get started with NuttX.
+Hopefully this guide will complement the Apache NuttX documentation, filling in gaps when needed, and 
+providing help for people wanting to get started with Apache NuttX.
 
 If you have improvements, corrections, additions, or things you'd like to see covered here,
 let me know! Contributions to this Companion are also welcome and encouraged! See the section

@@ -1,7 +1,7 @@
 .. include:: /substitutions.rst
 .. _index:
 
-The NuttX Companion
+The Apache NuttX Companion
 ===================
 
 Release v\ |version|. (:ref:`Quickstart <quickstart>`)
@@ -10,12 +10,12 @@ Release v\ |version|. (:ref:`Quickstart <quickstart>`)
    :maxdepth: 2
    :caption: Contents:
 
-`NuttX <https://nuttx.incubator.apache.org/>`_ is a very capable, configurable, fast,
+`Apache NuttX <https://nuttx.incubator.apache.org/>`_ is a very capable, configurable, fast,
 `POSIX <https://en.wikipedia.org/wiki/POSIX>`_-compatible, internet-connected
 `real-time operating system <https://en.wikipedia.org/wiki/Real-time_operating_system>`_.
 
-This book is meant to be a companion to the `NuttX Documentation <https://cwiki.apache.org/confluence/display/NUTTX/Nuttx>`_. Hopefully it will provide
-some more help for people interested in learning about NuttX, getting it running on their embedded hardware, and developing applications on it.
+This book is meant to be a companion to the `Apache NuttX Documentation <https://cwiki.apache.org/confluence/display/NUTTX/Nuttx>`_. Hopefully it will provide
+some more help for people interested in learning about Apache NuttX, getting it running on their embedded hardware, and developing applications on it.
 
 
 User Guide

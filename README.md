@@ -1,14 +1,14 @@
-# The NuttX Companion
+# The Apache NuttX Companion
 
-This is the [NuttX Companion](https://nuttx-companion.readthedocs.io), a warm and friendly guide to all 
-things [NuttX](https://nuttx.apache.org)– how to install it, configure it, develop on it, debug it, improve 
+This is the [Apache NuttX Companion](https://nuttx-companion.readthedocs.io), a warm and friendly guide to all 
+things [Apache NuttX](https://nuttx.apache.org)– how to install it, configure it, develop on it, debug it, improve 
 it, get help from its community, and generally have fun with this very capable, configurable,
 fast, POSIX-compatible, internet-connected real-time operating system.
 
-Hopefully this guide will complement the NuttX documentation, filling in gaps when needed, and
+Hopefully this guide will complement the Apache NuttX documentation, filling in gaps when needed, and
 providing more help for people interested in learning about NuttX.
 
-You can see the HTML version of this book here: [NuttX Companion](https://nuttx-companion.readthedocs.io).
+You can see the HTML version of this book here: [Apache NuttX Companion](https://nuttx-companion.readthedocs.io).
 
 ## Building the Documentation
 

@@ -40,7 +40,7 @@ You can load code, start, stop, step through the program, and examine variables 
 #. Connect to the board's serial console
 
    Usually you connect a USB-to-serial adapter to the board's serial console so you can see debug logging or
-   execute NuttX Shell (nsh) commands. You can access the serial console from Linux with the ``picocom`` terminal
+   execute Apache NuttX Shell (nsh) commands. You can access the serial console from Linux with the ``picocom`` terminal
    program:
 
     .. code-block:: bash

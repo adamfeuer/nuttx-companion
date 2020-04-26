@@ -4,16 +4,16 @@
 Contributing
 ============
 
-The NuttX Companion is made using the
+The Apache NuttX Companion is made using the
 `Sphinx documentation system <https://www.sphinx-doc.org/en/master/>`_. Sphinx documentation
 is written in `ReStructured Text <https://docutils.sourceforge.io/rst.html>`_ (RST). RST is
 the format used for `Python documentation <https://docs.python.org/3/>`_ and is also used
 in many other projects.
 
-Contributions and fixes to the NuttX Companion are encouraged and welcome. Here's how to do
+Contributions and fixes to the Apache NuttX Companion are encouraged and welcome. Here's how to do
 it.
 
-#. Fork the NuttX Companion Repository
+#. Fork the Apache NuttX Companion Repository
 
    Visit this link and hit the Fork button in the upper right of the page:
 
@@ -120,7 +120,7 @@ it.
 
 #. Submit Your Pull Request
 
-   Go to the `NuttX Companion <https://github.com/adamfeuer/nuttx-companion/>`_ page
+   Go to the `Apache NuttX Companion <https://github.com/adamfeuer/nuttx-companion/>`_ page
    on Github and click the "Pull Request" button. See Github's `Creating a Pull Request
    <https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request>`__
    page for more info.
@@ -146,7 +146,7 @@ it.
 
 #. Make Changes If Requested
 
-   When you submit your Pull Request, the NuttX Companion team will review the changes,
+   When you submit your Pull Request, the Apache NuttX Companion team will review the changes,
    and may request that you modify your submission. Please work with them to get your
    changes accepted.
    |br|
@@ -154,7 +154,7 @@ it.
 
 #. You're Done!
 
-   Feel good that you've made NuttX documentation better for yourself and others. You've
+   Feel good that you've made Apache NuttX documentation better for yourself and others. You've
    just made the world a better place!
 
 Sphinx Resources

@@ -4,17 +4,17 @@
 Configuring
 ===========
 
-NuttX is a very configurable operating system. Nearly all features can be configured in or
+Apache NuttX is a very configurable operating system. Nearly all features can be configured in or
 out of the system. This makes it possible to compile a build tailored for your hardware and
 application. It also makes configuring the system complex at times.
 
 There is a configuration system that can be used on the commandline or in a GUI. I've found
-the easiest way to configured NuttX is to use the ``menuconfig`` system. This is used
-via a terminal program and allows quick access to all of NuttX's features via a system of
+the easiest way to configured Apache NuttX is to use the ``menuconfig`` system. This is used
+via a terminal program and allows quick access to all of Apache NuttX's features via a system of
 menus.
 
-The NuttX configuration system uses Linux's
-`kconfig system <https://www.kernel.org/doc/Documentation/kbuild/kconfig-language.txt>`_ adapted for use with NuttX.
+The Apache NuttX configuration system uses Linux's
+`kconfig system <https://www.kernel.org/doc/Documentation/kbuild/kconfig-language.txt>`_ adapted for use with Apache NuttX.
 Here's info on Linux's kconfig `menuconfig <https://en.wikipedia.org/wiki/Menuconfig>`_ system.
 
 After you've configured your board (see :ref:`compiling`), you can use the menuconfig system
