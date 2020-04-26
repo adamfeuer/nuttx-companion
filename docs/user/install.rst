@@ -69,8 +69,8 @@ This is necessary to run the ``./nuttx/tools/configure.sh`` script as well as us
     $ cd kconfig-frontends
     $ ./configure --prefix=$NUTTXTOOLS \
          --disable-kconfig --disable-nconf --disable-qconf \
-         --disable-gconf --disable-mconf --disable-static \
-         --disable-shared --disable-L10n --disable-utils
+         --disable-gconf --disable-static --disable-shared \
+         --disable-L10n --disable-utils
     $ touch aclocal.m4 Makefile.in
     $ make
     $ make install
