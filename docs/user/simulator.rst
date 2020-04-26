@@ -4,10 +4,10 @@
 Simulator
 =========
 
-NuttX has a simulator that can run as a regular program on Linux, Mac, and Windows computers.
+Apache NuttX has a simulator that can run as a regular program on Linux, Mac, and Windows computers.
 It's useful for debugging operating system features that aren't associated with particular
 device drivers— for instance the TCP/IP stack itself, a web interface or API for your
-application, or other communication protocols. It's also handy for trying out NuttX without
+application, or other communication protocols. It's also handy for trying out Apache NuttX without
 having a piece of embedded hardware.
 
 This guide assumes you're on Linux. It works on Windows and Mac too— if you know how,
@@ -55,7 +55,7 @@ Running
 
 #. Bring Up the Network Interfaces
 
-   On NuttX:
+   On Apache NuttX:
 
     .. code-block:: bash
 
@@ -90,7 +90,7 @@ Running
    need to pick the one that's right for your system.
 
    Then, on Linux do this to set up the tap network interface and route that will let
-   the Nuttx simulator access the network:
+   the Apache Nuttx simulator access the network:
 
     .. code-block:: bash
 
@@ -103,7 +103,7 @@ Running
        1 packets transmitted, 1 received, 0% packet loss, time 0ms
        rtt min/avg/max/mdev = 7.529/7.529/7.529/0.000 m
 
-#. Test that NuttX can access the Internet
+#. Test that Apache NuttX can access the Internet
 
    First let's ping the network interface of our Linux host to prove we can see the
    gateway to the Internet:

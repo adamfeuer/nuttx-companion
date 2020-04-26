@@ -4,13 +4,13 @@
 Compiling
 =========
 
-Now that we've installed NuttX prerequisites and downloaded the source code, we are ready to compile the source code
+Now that we've installed Apache NuttX prerequisites and downloaded the source code, we are ready to compile the source code
 into an executable binary file that can be run on the embedded board.
 
-#. List Possible NuttX Base Configurations
+#. List Possible Apache NuttX Base Configurations
 
    Find your hardware and a good starting application in the list of base configurations. In the application list,
-   ``nsh`` is the NuttX Shell, an interactive commandline that's a good starting place if you're new.
+   ``nsh`` is the Apache NuttX Shell, an interactive commandline that's a good starting place if you're new.
 
     .. code-block:: bash
 
@@ -51,4 +51,4 @@ into an executable binary file that can be run on the embedded board.
 #. Install the Executable Program on Your Board
 
    This step is a bit more complicated, depending on your board. It's covered in the section
-   :ref:`Running NuttX <running>`.
+   :ref:`Running Apache NuttX <running>`.

@@ -32,7 +32,7 @@ computer, you're using an ARM processor on your embedded board, and you're famil
        $ echo "export PATH=/opt/gcc/gcc-arm-none-eabi-9-2019-q4-major/bin:$PATH" >> ~/.bashrc
 
 
-#. Download NuttX
+#. Download Apache NuttX
 
     .. code-block:: bash
 
@@ -41,10 +41,10 @@ computer, you're using an ARM processor on your embedded board, and you're famil
        $ git clone https://github.com/apache/incubator-nuttx.git nuttx
        $ git clone https://github.com/apache/incubator-nuttx-apps apps
 
-#. List Possible NuttX Base Configurations
+#. List Possible Apache NuttX Base Configurations
 
    Find your hardware and a good starting application in the list of base configurations. In the application list,
-   ``nsh`` is the NuttX Shell, an interactive commandline that's a good starting place if you're new.
+   ``nsh`` is the Apache NuttX Shell, an interactive commandline that's a good starting place if you're new.
 
     .. code-block:: bash
 
@@ -74,7 +74,7 @@ computer, you're using an ARM processor on your embedded board, and you're famil
        $ make menuconfig
 
 
-#. Compile NuttX
+#. Compile Apache NuttX
 
     .. code-block:: bash
 
@@ -83,4 +83,4 @@ computer, you're using an ARM processor on your embedded board, and you're famil
 #. Install the Executable Program on Your Board
 
    This step is a bit more complicated, depending on your board. It's covered in the section
-   :ref:`Running NuttX <running>`.
+   :ref:`Running Apache NuttX <running>`.
