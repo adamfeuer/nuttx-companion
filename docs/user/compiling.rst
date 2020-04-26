@@ -29,7 +29,7 @@ into an executable binary file that can be run on the embedded board.
        $ # this is the basic layout of the command:
        $ # ./tools/configure.sh -l <board-name>:<config-dir>
        $ # for example:
-       $ ./tools/configure.sh -l sama5d36-xplained:nsh
+       $ ./tools/configure.sh -l sama5d3-xplained:nsh
 
 #. Customize Your Configuration (Optional)
 
