@@ -12,7 +12,7 @@ Prerequisites
 ---------------------
 
 Install prerequisites for building and using Apache NuttX (Linux)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #. Install system packages
 
  .. code-block:: bash
@@ -35,7 +35,7 @@ Install prerequisites for building and using Apache NuttX (Linux)
     $ su - $USER
 
 Install prerequisites for building and using Apache NuttX (macOS)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
  .. code-block:: bash
 
@@ -44,9 +44,33 @@ Install prerequisites for building and using Apache NuttX (macOS)
     $ brew install x86_64-elf-gcc  # Used by simulator
     $ brew install u-boot-tools  # Some platform integrate with u-boot
 
+Install prerequisites for building and using Apache NuttX (Windows -- WSL)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Install Required Tools
-~~~~~~~~~~~~~~~~~~~~~~
+If you are are building Apache NuttX on windows and using WSL follow
+that installation guide for Linux.  This has been verified against the
+Ubunutu 18.04 version.
+
+There may be complications interacting with
+programming tools over USB.  Recently support for USBIP was added to WSL 2
+which has been used with the STM32 platform, but it is not trivial to configure:
+https://github.com/rpasek/usbip-wsl2-instructions
+
+Install prerequisites for building and using Apache NuttX (Windows -- Cygwin)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Download and install `Cygwin <https://www.cygwin.com/>`_ using the minimal
+installation in addition to these packages:
+
+ .. code-block:: bash
+
+    make              bison             libmpc-devel
+    gcc-core          byacc             automake-1.15
+    gcc-g++           gperf             libncurses-devel
+    flex              gdb               libmpfr-devel
+    git               unzip             zlib-devel
+
+Install Required Tools (All Platforms)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 There are a collection of required tools that need to be built to build most Apache NuttX configurations:
 
@@ -69,8 +93,8 @@ This is necessary to run the ``./nuttx/tools/configure.sh`` script as well as us
     $ cd kconfig-frontends
     $ ./configure --prefix=$NUTTXTOOLS \
          --disable-kconfig --disable-nconf --disable-qconf \
-         --disable-gconf --disable-mconf --disable-static \
-         --disable-shared --disable-L10n --disable-utils
+         --disable-gconf --disable-static --disable-shared \
+         --disable-L10n --disable-utils
     $ touch aclocal.m4 Makefile.in
     $ make
     $ make install
@@ -80,6 +104,7 @@ This is necessary to run the ``./nuttx/tools/configure.sh`` script as well as us
  .. code-block:: bash
 
     $ cd tools/
+    $ wget http://ftp.gnu.org/pub/gnu/gperf/gperf-3.1.tar.gz
     $ tar zxf gperf-3.1.tar.gz
     $ cd gperf-3.1
     $ ./configure --prefix=$NUTTXTOOLS
@@ -93,7 +118,7 @@ This is necessary to run the ``./nuttx/tools/configure.sh`` script as well as us
 
     $ cd tools/
     $ tar zxf genromfs-0.5.2.tar.gz
-    $ cd genromfs
+    $ cd genromfs-0.5.2
     $ make install PREFIX=$NUTTXTOOLS
 
 Get Source Code (Stable)
@@ -102,7 +127,7 @@ Apache NuttX releases are published on the project `Downloads <https://nuttx.apa
 by the Apache mirrors.  Be sure to download both the nuttx and apps tarballs.
 
 
-Get Source Code (Developement)
+Get Source Code (Development)
 ------------------------------
 Apache NuttX is `actively developed on GitHub <https://github.com/apache/incubator-nuttx/>`_. If you want
 to use it, modify it or help develop it, you'll need the source code.
@@ -153,7 +178,8 @@ Unpack it into ``/opt/gcc`` and add the bin directory to your path. For instance
     $ sudo chgrp -R users /opt/gcc
     $ sudo chmod -R u+rw /opt/gcc
     $ cd /opt/gcc
-    $ HOST_PLATFORM=x86_64-linux   # use "mac" for macOS
+    $ HOST_PLATFORM=x86_64-linux   # use "mac" for macOS.
+    $ # For windows there is a zip instead (gcc-arm-none-eabi-9-2019-q4-major-win32.zip)
     $ curl -L -o gcc-arm-none-eabi-9-2019-q4-major-${HOST_PLATFORM}.tar.bz2 https://developer.arm.com/-/media/Files/downloads/gnu-rm/9-2019q4/gcc-arm-none-eabi-9-2019-q4-major-${HOST_PLATFORM}.tar.bz2
     $ tar xf gcc-arm-none-eabi-9-2019-q4-major-${HOST_PLATFORM}.tar.bz2
     $ # add the toolchain bin/ dir to your path...
