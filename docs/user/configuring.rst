@@ -24,7 +24,19 @@ has your configuration options selected.
 #. Initialize Board Configuration
 
    Here we'll use the simulator since that's the simplest to explain. You can do this with
-   any board and base configuration.
+   any board and base configuration.  Note here you should be supplying `configure.sh` the correct flag
+   for your build environment:
+
+    .. code-block:: bash
+
+       -l selects the Linux (l) host environment.
+       -m selects the macOS (m) host environment.
+       -c selects the Windows host and Cygwin (c) environment.
+       -u selects the Windows host and Ubuntu under Windows 10 (u) environment.
+       -g selects the Windows host and MinGW/MSYS environment.
+       -n selects the Windows host and Windows native (n) environment.
+
+   Select the simulator configuration for a Linux host:
 
     .. code-block:: bash
 
