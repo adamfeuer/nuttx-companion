@@ -8,6 +8,7 @@ Here's a list of Apache NuttX resources that you might find helpful:
 
  * Apache NuttX
 
+   * `NuttX website <https://nuttx.apache.org>`_
    * `Apache NuttX website <https://www.nuttx.org>`_
    * `Apache NuttX online documentation <https://cwiki.apache.org/confluence/display/NUTTX/Nuttx>`_
    * `Apache NuttX mailing list <https://nuttx.incubator.apache.org/community/>`_ – a very active mailing list, the place to get help with your application or any questions you have about NuttX.
