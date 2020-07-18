@@ -19,6 +19,8 @@ modification.
 
   * Look at register names listed in the datasheet for the peripheral.
   * Search the NuttX codebase for the register names (try several different ones).
+  * Note that you'll have to compare the datasheet to the header and code files to see if there are differences; there
+    will usually be some differences between architectures, and they can be significant.
 
 * Find a similar driver in U-Boot source code:
 
@@ -37,7 +39,7 @@ modification.
 
     * printf debugging
 
-      * Sprinkle ``custinfo()`` logging statements through your code liberally to see execution paths and look at variables
+      * Sprinkle ``custinfo()`` logging statements through your code to see execution paths and look at variables
         while the code is running. The reason to use ``custinfo()`` as opposed to the other logging shortcuts
         (``mcinfo()``, etc.) is that you can turn on and off other other logging and still see your custom debug
         logging. Sometimes it's useful to quiet the flood of logging that comes from a particular debug logging
@@ -50,32 +52,32 @@ modification.
            CONFIG_DEBUG_CUSTOM_INFO=y
            (etc..)
 
-      * Add the settings to the beginning of your ``.config`` file after running ``make menuconfig`` (that will reorder
+      * Add the settings to the end of your ``.config`` file after running ``make menuconfig`` (that will reorder
         the file, making it harder to see and change the debug settings if you need to).
 
         .. code-block:: bash
 
-           $ cat debugsettings .config > .config1 ; mv .config1 .config
+           $ cat .config debugsettings > .config1 ; mv .config1 .config
 
       * If you are using interrupts and threads (many things in NuttX run in different threads as a response to interrupts),
         you can use printf debugging to see overlapping execution.
 
         * Interrupts - here's how to inspect the C stack frame to see what execution environment is currently running:
 
-        .. code-block:: c
+          .. code-block:: c
 
-           uint32_t frame = 0; /* MUST be the very first thing in the function */
-           uint32_t p_frame;
-           frame++; /* make sure that frame doesn't get optimized out */
-           p_frame = (uint32_t)(&frame);
-           custinfo("p_frame: %08x\n", p_frame);
+            uint32_t frame = 0;  /* MUST be the very first thing in the function */
+            uint32_t p_frame;
+            frame++;             /* make sure that frame doesn't get optimized out */
+            p_frame = (uint32_t)(&frame);
+            custinfo("p_frame: %08x\n", p_frame);
 
-       * Threads - here's how to get the thread identifier to see which thread is currently executing:
+        * Threads - here's how to get the thread identifier to see which thread is currently executing:
 
-        .. code-block:: c
+          .. code-block:: c
 
-           pthread_t thread_id = pthread_self();
-           custinfo("pthread_id: %08x\n", thread_id);
+            pthread_t thread_id = pthread_self();
+            custinfo("pthread_id: %08x\n", thread_id);
 
       * stack frame printf
       * thread printf
@@ -167,21 +169,23 @@ code implements the necessary algorithms often helps one understand how the driv
 
   * Chip Architecture Diagram — shows how the subsections of the chip (CPU, system bus, peripherals, I/O, etc.) connect
     to each other.
-  * Memory Map — showing the location of peripheral registers in memory.
+  * Memory Map — showing the location of peripheral registers in memory. This info usually goes into a header file.
   * DMA Engine — if Direct Memory Access (DMA) is used, this may have info on how to use it.
   * Peripheral — the datasheet usually has a section on how the peripheral works. Key parts of this include:
 
-    * Registers List — name and offset from the base memory address of the peripheral.
+    * Registers List — name and offset from the base memory address of the peripheral. This needs to go into a header
+      file.
     * Register Map — what is the size of each register, and what do the bits mean? You will need to create ``#defines``
-      in a header file that your code will use to operate on the registers.
+      in a header file that your code will use to operate on the registers. Refer to other driver header files for
+      examples.
 
 `Logic analyzers <https://en.wikipedia.org/wiki/Logic_analyzer>`_
 -----------------------------------------------------------------
 
-  For drivers that involve input and output (I/O), especially that involve complex protocols like SD Cards, SPI, I2C,
-  etc., actually seeing the waveform that goes in and out the chip's pins is extremely helpful. Logic analyzers can
-  capture that information and display it graphically, allowing you to see if the driver is doing the right thing
-  on the wire.
+For drivers that involve input and output (I/O), especially that involve complex protocols like SD Cards, SPI, I2C,
+etc., actually seeing the waveform that goes in and out the chip's pins is extremely helpful. Logic analyzers can
+capture that information and display it graphically, allowing you to see if the driver is doing the right thing
+on the wire.
 
 DMA Debugging
 -------------
