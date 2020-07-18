@@ -31,26 +31,42 @@ You can load code, start, stop, step through the program, and examine variables 
 
        $ arm-none-eabi-gdb
 
+#. Connect to the board's serial console
+
+   Usually you connect a USB-to-serial adapter to the board's serial console so you can see debug logging or
+   execute Apache NuttX Shell (nsh) commands. You can access the serial console from Linux with the ``picocom`` terminal
+   program. From another terminal, do this:
+
+    .. code-block:: bash
+
+       $ picocom -b 115200 /dev/ttyUSB0
+
 #. Set gdb to talk with the J-Link
 
     ::
 
        (gdb) target extended-remote :2331
 
-#. Connect to the board's serial console
+#. Reset the board
 
-   Usually you connect a USB-to-serial adapter to the board's serial console so you can see debug logging or
-   execute Apache NuttX Shell (nsh) commands. You can access the serial console from Linux with the ``picocom`` terminal
-   program:
+    ::
 
-    .. code-block:: bash
+       (gdb) mon reset
 
-       $ picocom -b 115200 /dev/ttyUSB0
+#. You may need to switch to the serial console to hit a key to stop the board from booting from its boot monitor
+   (U-Boot, in the case of the SAMA5 boards from Microchip).
+
+#. Halt the board
+
+    ::
+
+       (gdb) mon halt
 
 #. Load nuttx
 
     ::
 
+       (gdb) file nuttx
        (gdb) load nuttx
        `/home/adamf/src/nuttx-sama5d36-xplained/nuttx/nuttx' has changed; re-reading symbols.
        Loading section .text, size 0x9eae4 lma 0x20008000

@@ -47,25 +47,26 @@ Custom Debug Logging
 --------------------
 
 Sometimes you need to see debug logs specific to your feature, and you don't want the rest of the built-in logs
-because they're either not relevant or have too much information. You can add your own custom debug logging by
-adding the following lines to `debug.h <https://github.com/apache/incubator-nuttx/blob/master/include/debug.h>`__:
+because they're either not relevant or have too much information. Debugging using logs is surprising powerful.
+
+
+You can add your own custom debug logging by adding the following lines to
+`debug.h <https://github.com/apache/incubator-nuttx/blob/master/include/debug.h>`__:
 
     .. code-block:: c
 
-       /* after the CONFIG_DEBUG_WATCHDOG_INFO block near line 716 */
+       /* after the CONFIG_DEBUG_WATCHDOG_INFO block near line 721 */
        #ifdef CONFIG_DEBUG_CUSTOM_INFO
-       #  define custinfo(format, ...)   _info(format, ##__VA_ARGS__)
+       #  define custinfo    _info
        #else
-       #  define custinfo(x...)
+       #  define custinfo    _none
        #endif
 
+You need to add the following line to your ``.config`` file:
 
-       /* after the CONFIG_DEBUG_WATCHDOG_INFO block near line 1314 */
-       #ifdef CONFIG_DEBUG_CUSTOM_INFO
-       #  define custinfo      _info
-       #else
-       #  define custinfo      (void)
-       #endif
+    .. code-block:: c
+
+       CONFIG_DEBUG_CUSTOM_INFO=y
 
 You would use it like this:
 
@@ -102,4 +103,5 @@ according to the OpenOCD instructions.
 See this article for more info:
 `Debugging a Apache NuttX target with GDB and OpenOCD <https://micro-ros.github.io/docs/tutorials/advanced/debugging_gdb_openocd/>`_.
 
+See the section :ref:`Running <running>` for a brief tutorial on how to use GDB.
 
