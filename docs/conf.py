@@ -80,4 +80,5 @@ html_static_path = ['_static']
 
 html_css_files = [
     'style.css',
+    'custom.css',
 ]

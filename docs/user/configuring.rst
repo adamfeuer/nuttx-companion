@@ -14,8 +14,8 @@ via a terminal program and allows quick access to all of Apache NuttX's features
 menus.
 
 The Apache NuttX configuration system uses Linux's
-`kconfig system <https://www.kernel.org/doc/Documentation/kbuild/kconfig-language.txt>`_ adapted for use with Apache NuttX.
-Here's info on Linux's kconfig `menuconfig <https://en.wikipedia.org/wiki/Menuconfig>`_ system.
+`kconfig system <https://www.kernel.org/doc/Documentation/kbuild/kconfig-language.txt>`_ adapted for use with Apache
+NuttX. Here's info on Linux's kconfig `menuconfig <https://en.wikipedia.org/wiki/Menuconfig>`_ system.
 
 After you've configured your board (see :ref:`compiling`), you can use the menuconfig system
 to change the configuration. Once you've configured, you can compile to make a build that

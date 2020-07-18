@@ -2,7 +2,7 @@
 .. _index:
 
 The Apache NuttX Companion
-===================
+==========================
 
 Release v\ |version|. (:ref:`Quickstart <quickstart>`)
 
@@ -34,6 +34,7 @@ How to get NuttX, configure it, compile it, and install it on your embedded hard
    user/configuring
    user/debugging
    user/simulator
+   user/drivers
    user/making-changes
    user/resources
 

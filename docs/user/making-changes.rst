@@ -158,11 +158,12 @@ maybe doing that several times. Then when everything works, I get my branch read
        $ # run again
        $ ./tools/checkpatch.sh -f my-file.c
 
-   If you have made a lot of changes, you can also use this bash commandline to see the errors for all the changed C files in your branch:
+   If you have made a lot of changes, you can also use this bash commandline to see the errors for all the changed C
+   files in your branch (assumes you are currently on the branch that has the changed files):
 
     .. code-block:: bash
 
-       $ git diff --name-only master...YOUR-BRANCH-NAME | egrep "\.c|\.h" | xargs echo | xargs ./tools/checkpatch.sh -f | less
+       $ git diff --name-only master | egrep "\.c|\.h" | xargs echo | xargs ./tools/checkpatch.sh -f | less
 
    Note that there are some bugs in the ``nxstyle`` program that ``checkpatch.sh`` uses, so
    it may report a few errors that are not actually errors. The committers will help you
@@ -182,6 +183,12 @@ maybe doing that several times. Then when everything works, I get my branch read
 
 Submitting Your Changes to NuttX
 --------------------------------
+
+  Pull requests let you tell others about changes you've pushed to a branch in a repository on GitHub. Once a pull
+  request is opened, you can discuss and review the potential changes with collaborators and add follow-up commits
+  before your changes are merged into the base branch.
+
+  (from GitHub's `About pull requests <https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/about-pull-requests>`_ page)
 
 Before you do a Pull Request, the NuttX team will usually want all the changes you made in your branch "squashed" into
 a single commit, so that when they review your changes, there's a clean view of the history. If there are changes
@@ -207,7 +214,8 @@ squash before submitting the Pull Request:
        $ git checkout master
        $ git checkout -b my-branch
 
-#. Merge your saved old branch into the new one, telling git to "squash" all your commits into one:
+#. Merge your saved old branch into the new one, telling git to "squash" all your commits into one (note this will
+   not commit the result; the changed files will be in your staging area, ready to be committed):
 
     .. code-block:: bash
 
@@ -230,6 +238,14 @@ squash before submitting the Pull Request:
    A Pull Request is how you ask your upstream to review and merge your changes.
 
    Here's `GitHub's instructions for creating a Pull Request <https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request>`_.
+
+   |br|
+
+#. Get Pull Request feedback and implement changes
+
+   Get suggestions for improvements from reviewers, make changes, and push them to the branch. Once the reviewers are
+   happy, they may suggest squashing and merging again to make a single commit. In this case you would repeat steps
+   1 through 6.
 
 Git Resources
 -------------
