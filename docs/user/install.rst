@@ -91,8 +91,11 @@ This is necessary to run the ``./nuttx/tools/configure.sh`` script as well as us
 
     $ cd tools/
     $ cd kconfig-frontends
-    $ ./configure --prefix=$NUTTXTOOLS \
-         --enable-mconf --disable-gconf --disable-qconf
+    $ # on MacOS do the following:
+    $ patch < ../kconfig-macos.diff -p 1
+    $ ./configure --prefix=$NUTTXTOOLS --enable-mconf --disable-shared --enable-static --disable-gconf --disable-qconf --disable-nconf
+    $ # on Linux do the following:
+    $ ./configure --prefix=$NUTTXTOOLS --enable-mconf --disable-gconf --disable-qconf
     $ touch aclocal.m4 Makefile.in
     $ make
     $ make install
