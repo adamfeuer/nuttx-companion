@@ -20,36 +20,52 @@ computer, you're using an ARM processor on your embedded board, and you're famil
 
    Unpack it into ``/opt/gcc`` and add the bin directory to your path. For instance:
 
-    .. code-block:: bash
+   .. code-block:: bash
 
-       $ sudo mkdir /opt/gcc
-       $ sudo chgrp -R users /opt/gcc
-       $ cd /opt/gcc
-       $ wget https://developer.arm.com/-/media/Files/downloads/gnu-rm/9-2019q4/gcc-arm-none-eabi-9-2019-q4-major-x86_64-linux.tar.bz2?revision=108bd959-44bd-4619-9c19-26187abf5225&la=en&hash=E788CE92E5DFD64B2A8C246BBA91A249CB8E2D2D
-       $ tar xf gcc-arm-none-eabi-9-2019-q4-major-x86_64-linux.tar.bz2
-       $ # add the toolchain bin/ dir to your path...
-       $ # you can edit your shell's rc files if you don't use bash
-       $ echo "export PATH=/opt/gcc/gcc-arm-none-eabi-9-2019-q4-major/bin:$PATH" >> ~/.bashrc
-
+      $ sudo mkdir /opt/gcc
+      $ sudo chgrp -R users /opt/gcc
+      $ cd /opt/gcc
+      $ wget https://developer.arm.com/-/media/Files/downloads/gnu-rm/9-2019q4/gcc-arm-none-eabi-9-2019-q4-major-x86_64-linux.tar.bz2?revision=108bd959-44bd-4619-9c19-26187abf5225&la=en&hash=E788CE92E5DFD64B2A8C246BBA91A249CB8E2D2D
+      $ tar xf gcc-arm-none-eabi-9-2019-q4-major-x86_64-linux.tar.bz2
+      $ # add the toolchain bin/ dir to your path...
+      $ # you can edit your shell's rc files if you don't use bash
+      $ echo "export PATH=/opt/gcc/gcc-arm-none-eabi-9-2019-q4-major/bin:$PATH" >> ~/.bashrc
 
 #. Download Apache NuttX
 
-    .. code-block:: bash
+   .. code-block:: bash
 
-       $ mkdir nuttx
-       $ cd nuttx
-       $ git clone https://github.com/apache/incubator-nuttx.git nuttx
-       $ git clone https://github.com/apache/incubator-nuttx-apps apps
+      $ mkdir nuttx
+      $ cd nuttx
+      $ git clone https://github.com/apache/incubator-nuttx.git nuttx
+      $ git clone https://github.com/apache/incubator-nuttx-apps apps
+      $ git clone https://starcat-io@bitbucket.org/nuttx/tools.git tools
+
+#. Install the ``kconfig-frontends`` package
+
+   This is necessary to use the menuconfig system to configure NuttX, and includes the ``kconfig-tweak`` utility
+   that can be used to quickly change debug settings.
+
+   .. code-block:: bash
+
+      $ cd tools/kconfig-frontends
+      $ # on MacOS do the following:
+      $ patch < ../kconfig-macos.diff -p 1
+      $ ./configure --enable-mconf --disable-shared --enable-static --disable-gconf --disable-qconf --disable-nconf
+      $ # on Linux do the following:
+      $  ./configure --enable-mconf --disable-nconf --disable-gconf --disable-qconf
+      $ make
+      $ make install
 
 #. List Possible Apache NuttX Base Configurations
 
    Find your hardware and a good starting application in the list of base configurations. In the application list,
    ``nsh`` is the Apache NuttX Shell, an interactive commandline that's a good starting place if you're new.
 
-    .. code-block:: bash
+   .. code-block:: bash
 
-       $ cd nuttx
-       $ ./tools/configure.sh list | less
+      $ cd nuttx
+      $ ./tools/configure.sh list | less
 
 #. Initialize Configuration
 
@@ -57,10 +73,10 @@ computer, you're using an ARM processor on your embedded board, and you're famil
    the configuration script. The ``-l`` tells us that we're on Linux. macOS and Windows builds
    are possible, this Companion doesn't cover them yet.
 
-    .. code-block:: bash
+   .. code-block:: bash
 
-       $ cd nuttx
-       $ ./tools/configure.sh -l <board-name>:<config-dir>
+      $ cd nuttx
+      $ ./tools/configure.sh -l <board-name>:<config-dir>
     
 #. Customize Your Configuration (Optional)
 
@@ -69,16 +85,21 @@ computer, you're using an ARM processor on your embedded board, and you're famil
 
    There are a lot of options. We'll cover a few of them here. Don't worry about the complexity– you don't have to use most of the options.
 
-    .. code-block:: bash
+   .. code-block:: bash
 
-       $ make menuconfig
+      $ make menuconfig
 
+#. Exit the menuconfig System
+
+   Use the left or right arrow keys to select ``<Exit>``, and save the configuration.
+
+   |br|
 
 #. Compile Apache NuttX
 
-    .. code-block:: bash
+   .. code-block:: bash
 
-       $ make clean; make
+      $ make clean; make
 
 #. Install the Executable Program on Your Board
 

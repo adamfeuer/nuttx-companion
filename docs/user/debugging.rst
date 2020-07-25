@@ -41,40 +41,71 @@ you're trying to solve. See the file `debug.h <https://github.com/starcat-io/inc
 for available debug settings that are available. This can also be configured via the ``menuconfig`` system.
 
 There are also subsystems that enable USB trace debugging, and you can log to memory too, if you need the logging to be
-faster than what the console can output
+faster than what the console can output.
+
+Changing Debug Settings Quickly
+-------------------------------
+
+You can use the ``kconfig-tweak`` script that comes with the ``kconfig-frontends`` tools to quickly change debug settings,
+for instance turning them on or off before doing a build:
+
+.. code-block:: bash
+
+   $ kconfig-tweak --disable CONFIG_DEBUG_NET
+   $ kconfig-tweak --enable CONFIG_DEBUG_NET
+
+You can put a bunch of these into a simple script to configure the logging the way you want:
+
+.. code-block:: bash
+
+   #!/bin/bash
+
+   $ kconfig-tweak --disable CONFIG_DEBUG_ALERT
+   $ kconfig-tweak --disable CONFIG_DEBUG_FEATURES
+   $ kconfig-tweak --disable CONFIG_DEBUG_ERROR
+   $ kconfig-tweak --disable CONFIG_DEBUG_WARN
+   $ kconfig-tweak --disable CONFIG_DEBUG_INFO
+   $ kconfig-tweak --disable CONFIG_DEBUG_ASSERTIONS
+   $ kconfig-tweak --disable CONFIG_DEBUG_NET
+   $ kconfig-tweak --disable CONFIG_DEBUG_NET_ERROR
+   $ kconfig-tweak --disable CONFIG_DEBUG_NET_WARN
+   $ kconfig-tweak --disable CONFIG_DEBUG_NET_INFO
+   $ kconfig-tweak --disable CONFIG_DEBUG_SYMBOLS
+   $ kconfig-tweak --disable CONFIG_DEBUG_NOOPT
+   $ kconfig-tweak --disable CONFIG_SYSLOG_TIMESTAMP
 
 Custom Debug Logging
 --------------------
 
 Sometimes you need to see debug logs specific to your feature, and you don't want the rest of the built-in logs
-because they're either not relevant or have too much information. Debugging using logs is surprising powerful.
+because they're either not relevant or have too much information. Debugging using logs is surprisingly powerful.
 
 
 You can add your own custom debug logging by adding the following lines to
 `debug.h <https://github.com/apache/incubator-nuttx/blob/master/include/debug.h>`__:
 
-    .. code-block:: c
+.. code-block:: c
 
-       /* after the CONFIG_DEBUG_WATCHDOG_INFO block near line 721 */
-       #ifdef CONFIG_DEBUG_CUSTOM_INFO
-       #  define custinfo    _info
-       #else
-       #  define custinfo    _none
-       #endif
+   /* after the CONFIG_DEBUG_WATCHDOG_INFO block near line 721 */
+   #ifdef CONFIG_DEBUG_CUSTOM_INFO
+   #  define custinfo    _info
+   #else
+   #  define custinfo    _none
+   #endif
 
 You need to add the following line to your ``.config`` file:
 
-    .. code-block:: c
+.. code-block:: c
 
-       CONFIG_DEBUG_CUSTOM_INFO=y
+   CONFIG_DEBUG_CUSTOM_INFO=y
 
 You would use it like this:
 
-    .. code-block:: c
+.. code-block:: c
 
-       /* Custom debug logging */
-       custinfo("This is a custom log message.");
-       custinfo("Custom log data: %d", my-integer-variable);
+   /* Custom debug logging */
+   custinfo("This is a custom log message.");
+   custinfo("Custom log data: %d", my-integer-variable);
 
 
 JTAG Debugging
